@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+#div1 .active {
+	background: yellow;
+}
+
+#div1 div {
+	width: 200px;
+	height: 200px;
+	background: #ccc;
+	border: 1px solid #999;
+	display: none;
+}
+</style>
+
+
+<script>
+	window.onload = function() {
+		var oDiv = document.getElementById('div1');
+		var aBtn = oDiv.getElementsByTagName('input');
+		var aDiv = oDiv.getElementsByTagName('div');
+		for (var i = 0; i < aBtn.length; i++) {
+			alert("cbshdcds");
+			aBtn[i].index = i;//为每个按钮标签设置一个index属性  
+			aBtn[i].onclick = function() {
+
+				for (var i = 0; i < aBtn.length; i++) {
+					aBtn[i].className = '';//将所有的className置为空，即没有哪个是高亮显示是当前选项卡是哪个  
+					aDiv[i].style.display = 'none';// 将当前的div全部隐藏起来  
+				}
+				//alert(this.value);  
+				this.className = 'active';//此处只显示一个高亮，即选中的那个选项卡  
+				aDiv[this.index].style.display = 'block';//显示当前的选项卡，主要通过index确定选定的选项卡是哪个  
+			};
+			alert("ooo");
+		}
+	};
+</script>
+</head>
+<body>
+
+	<div id="div1">
+		<input class="active" type="button" value="教育" /> <input type="button"
+			value="培训" /> <input type="button" value="招生" /> <input type="button"
+			value="出国" />
+		<div style="display: block;">1111</div>
+		<div>2222</div>
+		<div>3333</div>
+		<div>4444</div>
+	</div>
+
+</body>
+</html>
